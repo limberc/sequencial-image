@@ -4,7 +4,6 @@ import pytorch_lightning as pl
 import torch
 import torch.nn.parallel
 import torch.optim as optim
-import torch.optim.lr_scheduler as lr_scheduler
 import torch.utils.data
 import torch.utils.data.distributed
 import torchvision.transforms as transforms
@@ -159,10 +158,6 @@ class CIFARLightning(LightningModule):
     @staticmethod
     def add_model_specific_args(parent_parser):  # pragma: no-cover
         parser = ArgumentParser(parents=[parent_parser])
-        parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
-                            choices=CIFARLightning.MODEL_NAMES,
-                            help=('model architecture: ' + ' | '.join(CIFARLightning.MODEL_NAMES)
-                                  + ' (default: resnet18)'))
         parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                             help='number of data loading workers (default: 4)')
         parser.add_argument('--nhead', default=4, type=int, metavar='N',
