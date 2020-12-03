@@ -41,7 +41,6 @@ class CIFARLightning(LightningModule):
     # pull out resnet names from torchvision models
     def __init__(
             self,
-            arch: str,
             lr: float,
             momentum: float,
             weight_decay: int,
@@ -57,7 +56,6 @@ class CIFARLightning(LightningModule):
     ):
         super().__init__()
         self.save_hyperparameters()
-        self.arch = arch
         # self.pretrained = pretrained
         self.lr = lr
         self.momentum = momentum
